@@ -1,9 +1,7 @@
 <template>
 	<div class="home">
-		<!-- <h1>riefer.io</h1> -->
 		<Carousel />
 		<CardDeck />
-		<v-divider></v-divider>
 		<Contact />
 	</div>
 </template>
