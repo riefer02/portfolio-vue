@@ -2,7 +2,7 @@
   <v-form v-model="valid">
     <v-container>
       <v-row>
-        <v-col cols="12" md="4">
+        <v-col cols="12" md="12">
           <v-text-field
             v-model="firstname"
             :rules="nameRules"
@@ -12,7 +12,7 @@
           ></v-text-field>
         </v-col>
 
-        <v-col cols="12" md="4">
+        <v-col cols="12" md="12">
           <v-text-field
             v-model="lastname"
             :rules="nameRules"
@@ -22,7 +22,7 @@
           ></v-text-field>
         </v-col>
 
-        <v-col cols="12" md="4">
+        <v-col cols="12" md="12">
           <v-text-field
             v-model="email"
             :rules="emailRules"
@@ -37,7 +37,6 @@
             clearable
             clear-icon="mdi-cancel"
             label="Message"
-            value="Hello There"
           ></v-textarea>
         </v-container>
       </v-row>
