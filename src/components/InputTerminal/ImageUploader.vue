@@ -14,7 +14,6 @@
 			:addFileDescription="true"
 			:addFileTag="true"
 			:tags="['Tag 1', 'Tag 2', 'Tag 3', 'Tag 4']"
-			@change="emitValue"
 		/>
 	</div>
 </template>
@@ -30,6 +29,12 @@ export default {
 	data: () => ({
 		handyAttachments: [],
 	}),
+	watch: {
+		handyAttachments: function() {
+			console.log(this.handyAttachments);
+			this.$emit("updateValue", this.handyAttachments);
+		},
+	},
 	methods: {
 		emitValue: function() {
 			this.$emit("input", this.handyAttachments);

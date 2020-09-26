@@ -27,7 +27,10 @@
 					<TagsInput label="Knowledges" v-model="form.knowledges" />
 					<TagsInput label="Producers" v-model="form.producers" />
 					<TextInput label="Link" v-model="form.link" />
-					<ImageUploader v-model="form.images" />
+					<ImageUploader
+						v-model="form.images"
+						v-on:updateValue="updateImages"
+					/>
 				</v-col>
 				<v-row class="d-flex justify-center">
 					<v-btn x-large dark type="submit">Submit</v-btn>
@@ -59,7 +62,7 @@ export default {
 			knowledges: [],
 			producers: [],
 			link: "",
-			images: "",
+			images: [],
 		},
 		titleRules: [
 			(v) => !!v || "Title is required",
@@ -72,12 +75,15 @@ export default {
 		],
 	}),
 	methods: {
+		updateImages(payload) {
+			this.form.images = payload;
+		},
 		handleCreate() {
 			console.log("Child has been created");
 		},
 		formSubmit(e) {
 			e.preventDefault();
-			// let self = this;
+			console.log(this.form);
 			this.axios
 				.post(`/api/v1/projects/create`, {
 					title: this.form.title,
@@ -86,25 +92,15 @@ export default {
 					knowledges: this.form.knowledges,
 					producers: this.form.producers,
 					link: this.form.link,
-					image: this.form.image,
+					images: this.form.images,
 				})
 				.then(function(response) {
 					console.log(response.data);
 					console.log("Project successfully saved in database.");
-					// self.$router.push("/thankyou");
 				})
 				.catch(function(error) {
 					if (error.response) {
 						console.log(error.response.data.message);
-						// const arrayOfErrors = error.response.data.message
-						// 	.split(".")
-						// 	.map(
-						// 		(el) => el.trim()
-						// 		// .split(/\s+/)
-						// 		// .join(" ")
-						// 	);
-						// self.$store.commit("writeErrors", arrayOfErrors);
-						// self.$store.commit("toggleModal");
 					} else if (error.request) {
 						console.log(error.request);
 					} else {
