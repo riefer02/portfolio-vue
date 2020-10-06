@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row>
-      <Card v-for="item in projects" :key="item.title" :item="item" />
+      <Card v-for="item in items" :key="item.title" :item="item" />
     </v-row>
   </v-container>
 </template>

@@ -1,7 +1,11 @@
 <template>
   <v-col cols="12" sm="4">
     <v-card class="mx-auto" max-width="400">
-      <v-img class="white--text align-end" height="200px" :src="require('.">
+      <v-img
+        class="white--text align-end"
+        :src="this.item.image"
+        height="200px"
+      >
         <v-card-title>{{ this.item.title }}</v-card-title>
       </v-img>
 

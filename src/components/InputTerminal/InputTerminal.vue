@@ -100,7 +100,7 @@ export default {
 				})
 				.catch(function(error) {
 					if (error.response) {
-						console.log(error.response.data.message);
+						console.log(error.response);
 					} else if (error.request) {
 						console.log(error.request);
 					} else {

@@ -52,8 +52,8 @@ export default {
       },
       {
         icon: "book-open-page-variant",
-        text: "Biography",
-        route: "/biography",
+        text: "Input Project",
+        route: "/input",
       },
       {
         icon: "test-tube",
